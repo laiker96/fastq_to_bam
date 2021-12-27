@@ -13,7 +13,6 @@ This set of scripts conforms a pipeline for processing fastq data from NGS exper
 
 DNase-seq counts enriched regions can be detected with the script call_peaks.sh in parallel using the specified number of threads with the MACS2 peak caller. The script autodetects if the BAM files are from a paired-end experiment or a single-end (or mixed parity) experiment and adjust the MACS2 parameters accordingly. Then it estimates the Signal-To-Noise ratio (SNR) of each alignment by calculating the proportion of reads that falls inside peaks (similar to the FrIP score in ATAC-seq experiments). The H3K27ac peaks for each tissue were downloaded from the ENCODE portal as narrowPeak files.
 
-![alt text](pipelineS2.png "pipeline")
 
 
 ## System requirements
