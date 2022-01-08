@@ -11,8 +11,8 @@ This set of scripts conforms a pipeline for processing fastq data from NGS exper
 
 ## Overview
 
-The ```wrapper.py``` script automatically processes all files in the given directory. All fastq files must be named as <fileID>.fastq.gz for SE files
-and <fileID>_1.fastq.gz; <fileID>_1.fastq.gz for PE files.
+The ```wrapper.py``` script automatically processes all files in the given directory. All fastq files must be named as ```<fileID>.fastq.gz``` for SE files
+and ```<fileID>_1.fastq.gz <fileID>_1.fastq.gz``` for PE files.
 
 
 
