@@ -91,3 +91,7 @@ def trim_adapters(files
 
     # Return output trimmed fastq.gz file names
     return return_value
+
+
+if __name__ == "__main__":
+    pass
