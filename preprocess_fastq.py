@@ -94,4 +94,29 @@ def trim_adapters(files
 
 
 if __name__ == "__main__":
-    pass
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    #Add arguments to parser
+    parser.add_argument("-f", "--files", 
+                    help = '''fastq.gz files to process''',
+                    type = str)
+
+
+    parser.add_argument("-t", "--threads",
+                    help = '''Number of threads to use''',
+                    type = str,
+                    default = 1)
+
+    parser.add_argument("-o", "--outdir",
+                    help = '''Where to save quality reports''',
+                    type = str,
+                    default = ".")
+
+    
+    args = parser.parse_args()
+    args = (vars(args))
+    args = list(args.values())
+    args[0] = [args[0]]
+    fastq_qc(*args)
+    print(args)
