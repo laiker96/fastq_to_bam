@@ -67,7 +67,7 @@ def trim_adapters(files
         
         # The funcion returns the names of the trimmed fastq.gz files
         return_value = [f'{outdir}/trim_{file_basenames[0]}', f'{outdir}/trim_{file_basenames[1]}']
-        # return_value = [value[2:] if value[:2] == './' else value for value in return_value]
+        return_value = [value[2:] if value[:2] == './' else value for value in return_value]
     
     else:
         
@@ -84,7 +84,7 @@ def trim_adapters(files
         
         # The funcion returns the names of the trimmed fastq.gz files
         return_value = [f'{outdir}/trim_{file_basename}']
-        # return_value = [value[2:] if value[:2] == './' else value for value in return_value]
+        return_value = [value[2:] if value[:2] == './' else value for value in return_value]
     
     # Call bbduk.sh
     subprocess.run(['bbduk.sh'] + arguments)
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     #Add arguments to parser
     parser.add_argument("-f", "--files", 
-                    help = '''fastq.gz files to process''',
+                    help = '''fastq.gz files to process (comma separated) for PE files''',
                     type = str)
 
 
@@ -113,10 +113,30 @@ if __name__ == "__main__":
                     type = str,
                     default = ".")
 
+    parser.add_argument("-p", "--paired",
+                    help = '''Files are paired or unpaired''',
+                    type = bool,
+                    default = False)
     
+    parser.add_argument("-a", "--adapters",
+            help = '''Adapter fasta file''',
+            type = str)
+
+    parser.add_argument("-m", "--minlength",
+            help = '''Minimum fraction of original length to keep trimmed reads''' ,
+            type = float,
+            default = 0.5)
+
     args = parser.parse_args()
     args = (vars(args))
     args = list(args.values())
-    args[0] = [args[0]]
-    fastq_qc(*args)
-    print(args)
+    args[0] = args[0].split(",")
+    
+    if args[0].__len__() == 1:
+        args[3] = False
+    else:
+        args[3] = True
+    fastq_qc(*args[:3])
+    trim_file_names = trim_adapters(*args)
+    args[0] = trim_file_names
+    fastq_qc(*args[:3])
