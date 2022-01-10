@@ -89,3 +89,64 @@ def sort_and_index(bam_file, threads):
             , '-@', f'{threads}', f'{bam_file}']
     # Call samtools index
     subprocess.run(arguments_index)
+
+
+
+if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    #Add arguments to parser
+    parser.add_argument("-f", "--files", 
+                    help = '''fastq.gz files to process (comma separated) for PE files''',
+                    type = str)
+
+    parser.add_argument("-o", "--outdir",
+                    help = '''Where to save quality reports''',
+                    type = str,
+                    default = ".")
+
+    parser.add_argument("-p", "--paired",
+                    help = '''Files are paired or unpaired''',
+                    type = bool,
+                    default = False)
+
+
+    parser.add_argument("-i", "--index",
+                    help = '''Index file prefix''',
+                    type = str)             
+
+
+    parser.add_argument("-t", "--threads",
+                    help = '''Number of threads to use''',
+                    type = str,
+                    default = 1)
+                    
+    parser.add_argument("-a", "--aligner",
+                    help = '''Aligner name''',
+                    type = str,
+                    default = 'bwa')             
+
+
+
+    args = parser.parse_args()
+    args = (vars(args))
+    args = list(args.values())
+    args[0] = args[0].split(",")
+    
+    if args[0].__len__() == 1:
+        args[2] = False
+    else:
+        args[2] = True
+    
+    
+    # bam_name = align_reads(*args)
+    name = "trim_SRR5837698_C7.bam"
+    sort_and_index(name, args[4])
+
+
+
+
+
+
+

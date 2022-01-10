@@ -4,7 +4,7 @@ import subprocess
 
 # Global variable to specify path to picard MarkDuplicates jar file
 picard_exe = ['java', '-jar'
-        , '/home/raquel/NGS/bin/picard.jar']
+        , '/home/luke/ngsBinaries/picard.jar']
 
 def mark_duplicates(bam_file, threads):
     '''
@@ -78,6 +78,7 @@ def filter_bam_file(bam_file
                 , '-F', f'{sam_bit_flag_remove}'
                 , '-o', f'{file_prefix}_out.bam']
 
+    chromosomes = chromosomes.split(",")
     subprocess.run(arguments + chromosomes)
     
     arguments_index = ['samtools', 'index'
@@ -85,3 +86,47 @@ def filter_bam_file(bam_file
     subprocess.run(arguments_index)
 
 
+if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    #Add arguments to parser
+    parser.add_argument("-b", "--bam", 
+                    help = '''bam file to process''',
+                    type = str)
+
+    parser.add_argument("-r", "--remove-dups",
+                    help = '''bool to remove duplicate reads''',
+                    type = str,
+                    default = False)
+
+    parser.add_argument("-c", "--chromosomes",
+                    help = '''chomosomes to keep''',
+                    type = str,
+                    default = None)
+
+    parser.add_argument("-t", "--threads",
+                    help = '''Number of threads to use''',
+                    type = str,
+                    default = 1)
+                    
+    parser.add_argument("-m", "--mapq",
+                    help = '''MAPQ threshold to use''',
+                    type = int,
+                    default = 20)
+                    
+    parser.add_argument("-p", "--paired",
+                    help = '''Files are paired or unpaired''',
+                    type = bool,
+                    default = False)
+
+
+
+    args = parser.parse_args()
+    args = (vars(args))
+    args = list(args.values())
+    
+
+    mark_duplicates(args[0], args[3])
+
+    filter_bam_file(*args)
