@@ -53,7 +53,7 @@ def trim_adapters(files
         # Define basenames for each pair of fastq.gz files
         file_basenames = os.path.basename(files[0]), os.path.basename(files[1])
         # Define global name for experiment
-        file_basename = os.path.basename(files[0]).split('_')[0]
+        file_basename = ''.join(os.path.basename(files[0]).split('.')[:-2])
         
         # Arguments definition for bbduk.sh
         arguments = ['Xmx12g', f'in1={files[0]}'

@@ -59,7 +59,7 @@ def filter_bam_file(bam_file
                 , '--threads', f'{threads}'
                 , '-q', f'{MAPQ_threshold}'
                 , '-F', f'{sam_bit_flag_remove}'
-                , '-f', '3' # Read is paired and mapped in proper paired
+                , '-f', '3' # Read is paired and mapped in proper pair
                 , '-o', f'{file_prefix}_out.bam']
         
         # Fragment size distribution analysis and histogram (.pdf)
