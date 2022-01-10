@@ -13,7 +13,9 @@ This set of scripts conforms a pipeline for processing fastq data from NGS exper
 
 
 ```preprocess_fastq.py``` runs Fastqc on the fastq.gz files and bbduk.sh with a fasta of adapters for adapter removal and trimming. I then runs Fastqc on the trimmed fastq.gz files an save the reports as .html files.
+
 ```align.py``` runs bwa or bowtie2 aligner with the given reference genome index and the trimmed fastq.gz files. It also compress the sam output file to a bam file and indexes it.
+
 ```filter_bam.py``` filters the bam files with MAPQ value and sam flag bits.
 
 The ```wrapper.py``` script automatically processes all files in the given directory. All fastq files must be named as ```<fileID>.fastq.gz``` for SE files
