@@ -78,7 +78,7 @@ def filter_bam_file(bam_file
                 , '-F', f'{sam_bit_flag_remove}'
                 , '-o', f'{file_prefix}_out.bam']
 
-    chromosomes = chromosomes.split(",")
+    #chromosomes = chromosomes.split(",")
     subprocess.run(arguments + chromosomes)
     
     arguments_index = ['samtools', 'index'
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     args = (vars(args))
     args = list(args.values())
     
-
+    args[2] = args[2].split(",")
     mark_duplicates(args[0], args[3])
 
     filter_bam_file(*args)
