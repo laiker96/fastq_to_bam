@@ -53,6 +53,7 @@ def align_reads(files, outdir, paired, index, threads, aligner):
                     , '-U', f'{files[0]}']
             
         # Call aligner
+        print(arguments)
         subprocess.run(arguments)
         
     # Arguments definition for samtools (convert sam to bam)
@@ -140,9 +141,8 @@ if __name__ == "__main__":
         args[2] = True
     
     
-    # bam_name = align_reads(*args)
-    name = "trim_SRR5837698_C7.bam"
-    sort_and_index(name, args[4])
+    bam_name = align_reads(*args)
+    sort_and_index(bam_name, args[4])
 
 
 
