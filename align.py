@@ -30,7 +30,8 @@ def align_reads(files, outdir, paired, index, threads, aligner):
             arguments = ['bowtie2', '--very-sensitive', '--threads'
                     , f'{threads}', '-x', f'{index}'
                     , '-S', f'{file_prefix}.sam'
-                    , '-1', f'{files[0]}', '-2',f'{files[1]}']
+                    , '-1', f'{files[0]}', '-2',f'{files[1]}', '2>' 
+                    , f'{file_prefix}_align.log']
             
         subprocess.run(arguments)
 
@@ -50,7 +51,8 @@ def align_reads(files, outdir, paired, index, threads, aligner):
             arguments = ['bowtie2', '--very-sensitive', '--threads'
                     , f'{threads}', '-x', f'{index}'
                     , '-S', f'{file_prefix}.sam'
-                    , '-U', f'{files[0]}']
+                    , '-U', f'{files[0]}', '2>'
+                    , f'{file_prefix}_align.log']
             
         # Call aligner
         print(arguments)
