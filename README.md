@@ -18,7 +18,7 @@ This set of scripts conforms a pipeline for processing fastq data from NGS exper
 
 ```filter_bam.py``` filters the bam files with MAPQ value and sam flag bits.
 
-The ```wrapper.py``` script automatically processes all files in the given directory. All fastq files must be named as ```<fileID>.fastq.gz``` for SE files
+The ```wrapper.py``` script automatically processes all files in the given working directory. All fastq files must be named as ```<fileID>.fastq.gz``` for SE files
 and ```<fileID>_1.fastq.gz <fileID>_1.fastq.gz``` for PE files.
 
 
@@ -52,3 +52,4 @@ cd fastq_to_bam
 ```
 
 ## How to run
+
