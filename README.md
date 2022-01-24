@@ -24,7 +24,7 @@ and ```<fileID>_1.fastq.gz <fileID>_1.fastq.gz``` for PE files.
 
 ## System requirements
 ### OS requirements
-The code has been tested on Ubuntu 20.04.3 LTS
+The code has been tested on Ubuntu 20.04.3 LTS with python version 3.8.8
 
 ### Dependencies
 The following packages are needed to run the code
@@ -37,12 +37,6 @@ bbduk.sh (from the BBMap suite)
 Picard
 ```
 
-### python3 packages dependencies
-The following python3 packages are needed to run the code
-
-```
-os
-```
 
 ## Installation
 Install from git
@@ -52,4 +46,4 @@ cd fastq_to_bam
 ```
 
 ## How to run
-
+To run each module independently ```preprocess_fastq.py ```
