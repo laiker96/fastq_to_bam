@@ -145,10 +145,3 @@ if __name__ == "__main__":
     
     bam_name = align_reads(*args)
     sort_and_index(bam_name, args[4])
-
-
-
-
-
-
-
