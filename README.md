@@ -49,8 +49,10 @@ To run each module independently:
 
 Preprocess fastq files for alignment
 ```preprocess_fastq.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED_BOOL> -a <ADAPTER_FASTA_FILE> -m <MINIMUM_FRACTION_LENGTH>```
+
 Alignment of the fastq files
 ```align.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED_BOOL> -i <INDEX_PREFIX> -a <ALIGNER_NAME>```
+
 Filtering of BAM files
 ```filter_bams.py -b <BAM_FILE> -t <THREADS> -c <CHROMOSOMES_TO_KEEP> -p <PAIRED_BOOL> -m <MAPQ_THRESHOLD> -r <REMOVE_DUPS_BOOL>```
 
