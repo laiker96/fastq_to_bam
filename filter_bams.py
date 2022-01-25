@@ -3,8 +3,30 @@ import os
 import subprocess
 
 # Global variable to specify path to picard MarkDuplicates jar file
-picard_exe = ['java', '-jar'
-        , '/home/luke/ngsBinaries/picard.jar']
+# picard_exe = ['java', '-jar'
+        # , '/home/luke/ngsBinaries/picard.jar']
+
+
+def get_picard_config_path():
+    
+    script_path = os.path.realpath(__file__)
+    script_dir = os.path.dirname(script_path)
+    picard_config_path = os.path.join(script_dir, '.picard_path.conf')
+    
+    if not os.path.exists(picard_config_path):
+
+        picard_path = input('Please enter full path to picard .jar file: ')
+        
+        with open(picard_config_path, 'wt') as conf_file:
+            conf_file.write(picard_path)
+    
+    with open(picard_config_path, 'rt') as conf_file:
+        picard_path = conf_file.readline()
+    
+    print(picard_config_path)
+    return ['java', '-jar', picard_path]
+
+picard_exe = get_picard_config_path()
 
 def mark_duplicates(bam_file, threads):
     '''
@@ -39,7 +61,7 @@ def filter_bam_file(bam_file
     be removed (sam flag bit 1024). Non mapped reads (flag 4) will be removed.
     Non primary alignment are also removed (flag 256)
     '''
-
+    
 
     file_prefix = os.path.splitext(bam_file)[0]
     
