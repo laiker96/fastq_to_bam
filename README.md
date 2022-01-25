@@ -47,4 +47,5 @@ cd fastq_to_bam
 ## How to run
 To run each module independently:
 
+Preprocess fastq files for alignment
 ```preprocess_fastq.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED_BOOL> -a <ADAPTER_FASTA_FILE> -m <MINIMUM_FRACTION_LENGTH>```
