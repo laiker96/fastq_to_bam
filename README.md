@@ -55,13 +55,19 @@ preprocess_fastq.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED
 
 Alignment of the fastq files
 
-```align.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED_BOOL> -i <INDEX_PREFIX> -a <ALIGNER_NAME>```
+```
+align.py -f <FASTQ.GZ_FILES> -t <THREADS> -o <OUTDIR_NAME> -p <PAIRED_BOOL> -i <INDEX_PREFIX> -a <ALIGNER_NAME>
+```
 
 Filtering of BAM files
 
-```filter_bams.py -b <BAM_FILE> -t <THREADS> -c <CHROMOSOMES_TO_KEEP> -p <PAIRED_BOOL> -m <MAPQ_THRESHOLD> -r <REMOVE_DUPS_BOOL>```
+```
+filter_bams.py -b <BAM_FILE> -t <THREADS> -c <CHROMOSOMES_TO_KEEP> -p <PAIRED_BOOL> -m <MAPQ_THRESHOLD> -r <REMOVE_DUPS_BOOL>
+```
 
 ###To run the module wrapper.py
 
-```wrapper.py -w <WORKING_DIRECTORY> -a <ADAPTER_FASTA_FILE> -m <MINIMUM_FRACTION_LENGTH>  -i <INDEX_PREFIX> -c <CHROMOSOMES_TO_KEEP> -Q <MAPQ_THRESHOLD> -A <ALIGNER_NAME> -t <THREADS>```
+```
+wrapper.py -w <WORKING_DIRECTORY> -a <ADAPTER_FASTA_FILE> -m <MINIMUM_FRACTION_LENGTH>  -i <INDEX_PREFIX> -c <CHROMOSOMES_TO_KEEP> -Q <MAPQ_THRESHOLD> -A <ALIGNER_NAME> -t <THREADS>
+```
 
