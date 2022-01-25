@@ -45,7 +45,7 @@ cd fastq_to_bam
 ```
 
 ## How to run
-To run each module independently:
+###To run each module independently:
 
 Preprocess fastq files for alignment
 
@@ -58,4 +58,8 @@ Alignment of the fastq files
 Filtering of BAM files
 
 ```filter_bams.py -b <BAM_FILE> -t <THREADS> -c <CHROMOSOMES_TO_KEEP> -p <PAIRED_BOOL> -m <MAPQ_THRESHOLD> -r <REMOVE_DUPS_BOOL>```
+
+###To run the module wrapper.py
+
+```wrapper.py -w <WORKING_DIRECTORY> -a <ADAPTER_FASTA_FILE> -m <MINIMUM_FRACTION_LENGTH>  -i <INDEX_PREFIX> -c <CHROMOSOMES_TO_KEEP> -Q <MAPQ_THRESHOLD> -A <ALIGNER_NAME> -t <THREADS>```
 
