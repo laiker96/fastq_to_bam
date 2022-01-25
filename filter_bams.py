@@ -2,13 +2,12 @@
 import os
 import subprocess
 
-# Global variable to specify path to picard MarkDuplicates jar file
-# picard_exe = ['java', '-jar'
-        # , '/home/luke/ngsBinaries/picard.jar']
-
 
 def get_picard_config_path():
-    
+    '''
+    Build picard config file
+    '''
+
     script_path = os.path.realpath(__file__)
     script_dir = os.path.dirname(script_path)
     picard_config_path = os.path.join(script_dir, '.picard_path.conf')
@@ -24,9 +23,12 @@ def get_picard_config_path():
         picard_path = conf_file.readline()
     
     print(picard_config_path)
+        
     return ['java', '-jar', picard_path]
 
+#Global variable to access the picard jar file
 picard_exe = get_picard_config_path()
+
 
 def mark_duplicates(bam_file, threads):
     '''
