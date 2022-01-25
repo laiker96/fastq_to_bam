@@ -33,7 +33,7 @@ samtools
 bowtie2
 bwa
 bbduk.sh (from the BBMap suite)
-Picard
+Picard .jar file
 ```
 
 
@@ -45,6 +45,9 @@ cd fastq_to_bam
 ```
 
 ## How to run
+
+**The first time running the scripts you will be asked to enter the full path to the Picard jar file in order to process the alignment files**
+
 ###To run each module independently:
 
 Preprocess fastq files for alignment
