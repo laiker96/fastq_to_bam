@@ -9,8 +9,7 @@ def align_reads(files, outdir, paired, index, threads, aligner):
     Align reads to reference genome using index files prefix (SE) or 
     directory(PE) and a list of fastq.gz files names. 
     '''
-    print(files)
-    print(paired)
+    
     if paired:
         # Save file prefix to variable (files must be .fastq.gz)
         file_prefix = '.'.join(files[0].split('.')[:-2])
