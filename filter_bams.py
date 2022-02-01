@@ -22,7 +22,6 @@ def get_picard_config_path():
     with open(picard_config_path, 'rt') as conf_file:
         picard_path = conf_file.readline()
     
-    print(picard_config_path)
         
     return ['java', '-jar', picard_path]
 
