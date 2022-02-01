@@ -75,7 +75,6 @@ def main(qualdir
     # QC analysis of processed fastq files
     preprocess_fastq.fastq_qc(archivos, threads, qualdir)
     # Align reads to reference with bowtie2 (SE) or STAR (PE)
-    print(archivos)
     out = align.align_reads(archivos, outdir, paired, index, threads, aligner)
     # Sort and index bam files
     align.sort_and_index(out, threads)
