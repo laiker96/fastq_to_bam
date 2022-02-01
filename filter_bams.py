@@ -58,7 +58,7 @@ def filter_bam_file(bam_file
         , paired
         ):
     '''
-    Filter bam file with sam flags. If removedupis True, duplicated reads will
+    Filter bam file with sam flags. If removedup is True, duplicated reads will
     be removed (sam flag bit 1024). Non mapped reads (flag 4) will be removed.
     Non primary alignment are also removed (flag 256)
     '''
