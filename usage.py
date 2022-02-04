@@ -2,7 +2,7 @@
 
 def usage():
     '''
-    Prints usage message for preprocess script
+    Prints usage message
     '''
 
     usage_message = '''
