@@ -39,7 +39,7 @@ def mark_duplicates(bam_file, threads):
 
     arguments = [f'I={bam_file}', f'O={bam_file}.flagged'
             , f'M={file_prefix}.metrics'
-            , 'ASSUME_SORTED=TRUE']
+            , 'ASSUME_SORTED=TRUE', 'MAX_RECORDS_IN_RAM=10000000']
     subprocess.run(picard_exe + ['MarkDuplicates'] 
             + arguments)
     
@@ -76,7 +76,7 @@ def filter_bam_file(bam_file
         sam_bit_flag_remove = 2308
 
     if paired:
-
+        print("hola")
         arguments = ['samtools', 'view', '-hb'
                 , f'{bam_file}'
                 , '--threads', f'{threads}'
@@ -120,8 +120,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-r", "--remove-dups",
                     help = '''bool to remove duplicate reads''',
-                    type = str,
-                    default = False)
+                    action = "store_true")
 
     parser.add_argument("-c", "--chromosomes",
                     help = '''chomosomes to keep''',
@@ -140,8 +139,7 @@ if __name__ == "__main__":
                     
     parser.add_argument("-p", "--paired",
                     help = '''Files are paired or unpaired''',
-                    type = bool,
-                    default = False)
+                    action = 'store_true')
 
 
 
@@ -150,6 +148,7 @@ if __name__ == "__main__":
     args = list(args.values())
     
     args[2] = args[2].split(",")
+    print(args)
     mark_duplicates(args[0], args[3])
 
     filter_bam_file(*args)
