@@ -43,7 +43,7 @@ Install from git
 git clone https://github.com/laiker96/fastq_to_bam
 cd fastq_to_bam
 ```
-Then add the directory to your PATH
+Then add the directory to your PATH environment variable
 
 ## How to run
 
