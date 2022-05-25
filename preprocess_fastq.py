@@ -115,8 +115,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-p", "--paired",
                     help = '''Files are paired or unpaired''',
-                    type = bool,
-                    default = False)
+                    action = "store_true")
     
     parser.add_argument("-a", "--adapters",
             help = '''Adapter fasta file''',
