@@ -2,7 +2,7 @@
 
 def usage():
     '''
-    Prints usage message
+    Print usage message
     '''
 
     usage_message = '''
