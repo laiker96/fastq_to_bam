@@ -76,7 +76,6 @@ def filter_bam_file(bam_file
         sam_bit_flag_remove = 2308
 
     if paired:
-        print("hola")
         arguments = ['samtools', 'view', '-hb'
                 , f'{bam_file}'
                 , '--threads', f'{threads}'
