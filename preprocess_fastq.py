@@ -114,7 +114,7 @@ if __name__ == "__main__":
                     default = ".")
 
     parser.add_argument("-p", "--paired",
-                    help = '''Files are paired or unpaired''',
+                    help = '''Fastq files are PE''',
                     action = "store_true")
     
     parser.add_argument("-a", "--adapters",
