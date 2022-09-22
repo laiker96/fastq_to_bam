@@ -118,7 +118,7 @@ if __name__ == "__main__":
                     type = str)
 
     parser.add_argument("-r", "--remove-dups",
-                    help = '''bool to remove duplicate reads''',
+                    help = '''Remove duplicate reads from alignment file''',
                     action = "store_true")
 
     parser.add_argument("-c", "--chromosomes",
@@ -137,7 +137,7 @@ if __name__ == "__main__":
                     default = 20)
                     
     parser.add_argument("-p", "--paired",
-                    help = '''Files are paired or unpaired''',
+                    help = '''Alignment files are paired''',
                     action = 'store_true')
 
 
