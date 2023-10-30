@@ -12,7 +12,7 @@ fastq.gz files of the form PREFIX_2.fastq.gz and PREFIX_2.fastq.gz for paired-en
 PREFIX.fastq.gz for single-end experiments. PREFIX must NOT include ".".                                |
                                                                                                         |
 Directories must be specified without "~" or ".." for referring to home (you may use $HOME) or parent   |
-directory. This may cause troubles or end with exceptions or directly not run!).                        |
+directory. This may cause troubles or end with exceptions not run at all!).                        |
 Use wrapper.py -h/--help for a full description of the program's arguments.                             |
 --------------------------------------------------------------------------------------------------------|
 '''
