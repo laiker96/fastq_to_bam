@@ -55,7 +55,7 @@ def align_reads(files, outdir, paired, index, threads, aligner):
             
         # Call aligner
         print(arguments)
-        subprocess.run(arguments)
+        subprocess.run(arguments, shell = True)
         
     # Arguments definition for samtools (convert sam to bam)
     arguments_samtools = ['samtools', 'view', '-hb'
