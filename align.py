@@ -26,13 +26,16 @@ def align_reads(files, outdir, paired, index, threads, aligner):
                     , f'{files[0]}', f'{files[1]}']
         # Call aligner
         else:
-            arguments = ['bowtie2', '--very-sensitive', '--threads'
-                    , f'{threads}', '-x', f'{index}'
-                    , '-S', f'{file_prefix}.sam'
-                    , '-1', f'{files[0]}', '-2',f'{files[1]}', '2>' 
-                    , f'{file_prefix}_align.log']
+            arguments = (
+    f"bowtie2 --very-sensitive --threads {threads} "
+    f"-x {index} "
+    f"-S {file_prefix}.sam "
+    f"-1 {files[0]} "
+    f"-2 {files[1]} "
+    f"2> {file_prefix}_align.log"
+)
             
-        subprocess.run(arguments)
+        subprocess.run(arguments, shell = True)
 
     else:
         # Save file prefix to variable (files must be .fastq.gz)
@@ -47,11 +50,13 @@ def align_reads(files, outdir, paired, index, threads, aligner):
                     , '-o', f'{file_prefix}.sam'
                     , f'{files[0]}']
         else:
-            arguments = ['bowtie2', '--very-sensitive', '--threads'
-                    , f'{threads}', '-x', f'{index}'
-                    , '-S', f'{file_prefix}.sam'
-                    , '-U', f'{files[0]}', '2>'
-                    , f'{file_prefix}_align.log']
+            arguments = (
+    f"bowtie2 --very-sensitive --threads {threads} "
+    f"-x {index} "
+    f"-S {file_prefix}.sam "
+    f"-U {files[0]} "
+    f"2> {file_prefix}_align.log"
+)
             
         # Call aligner
         print(arguments)
